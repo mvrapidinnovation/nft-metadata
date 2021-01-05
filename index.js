@@ -21,15 +21,8 @@ app.get('/', function(req, res) {
 app.get('/api/token/:token_id', function(req, res) {
   const tokenId = parseInt(req.params.token_id).toString()
   const token = db[tokenId]
-  const data = {
-    'name': token.name,
-    'description': token.description,
-    'image': token.image,
-    'external_url': token.external_url,
-    'attributes': { 
-    }
-  }
-  res.send(data)
+
+  res.send(token);
 })
 
 app.listen(app.get('port'), function() {
